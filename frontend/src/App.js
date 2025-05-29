@@ -104,25 +104,41 @@ function MovieApp() {
   };
 
   const handleLike = (movieId) => {
-    const newLiked = new Set(likedMovies);
-    if (newLiked.has(movieId)) {
-      newLiked.delete(movieId);
-    } else {
-      newLiked.add(movieId);
-    }
-    setLikedMovies(newLiked);
-    localStorage.setItem(STORAGE_KEYS.LIKED_MOVIES, JSON.stringify([...newLiked]));
+    requireAuth(() => {
+      const newLiked = new Set(likedMovies);
+      if (newLiked.has(movieId)) {
+        newLiked.delete(movieId);
+      } else {
+        newLiked.add(movieId);
+      }
+      setLikedMovies(newLiked);
+      
+      // Update user data if logged in
+      if (user) {
+        updateUserData({ likedMovies: [...newLiked] });
+      } else {
+        localStorage.setItem(STORAGE_KEYS.LIKED_MOVIES, JSON.stringify([...newLiked]));
+      }
+    });
   };
 
   const handleWatchLater = (movieId) => {
-    const newWatchLater = new Set(watchLaterMovies);
-    if (newWatchLater.has(movieId)) {
-      newWatchLater.delete(movieId);
-    } else {
-      newWatchLater.add(movieId);
-    }
-    setWatchLaterMovies(newWatchLater);
-    localStorage.setItem(STORAGE_KEYS.WATCH_LATER, JSON.stringify([...newWatchLater]));
+    requireAuth(() => {
+      const newWatchLater = new Set(watchLaterMovies);
+      if (newWatchLater.has(movieId)) {
+        newWatchLater.delete(movieId);
+      } else {
+        newWatchLater.add(movieId);
+      }
+      setWatchLaterMovies(newWatchLater);
+      
+      // Update user data if logged in
+      if (user) {
+        updateUserData({ watchLater: [...newWatchLater] });
+      } else {
+        localStorage.setItem(STORAGE_KEYS.WATCH_LATER, JSON.stringify([...newWatchLater]));
+      }
+    });
   };
 
   const toggleDarkMode = () => {
