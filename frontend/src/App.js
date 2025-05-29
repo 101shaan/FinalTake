@@ -36,19 +36,23 @@ function MovieApp() {
 
   // Initialize from localStorage and URL params
   useEffect(() => {
-    // Load saved preferences
-    const savedLiked = localStorage.getItem(STORAGE_KEYS.LIKED_MOVIES);
-    const savedWatchLater = localStorage.getItem(STORAGE_KEYS.WATCH_LATER);
-    const savedDarkMode = localStorage.getItem(STORAGE_KEYS.DARK_MODE);
+    // Load saved preferences from user data or localStorage
+    if (user) {
+      setLikedMovies(new Set(user.likedMovies || []));
+      setWatchLaterMovies(new Set(user.watchLater || []));
+    } else {
+      // Fallback to localStorage for non-logged-in users
+      const savedLiked = localStorage.getItem(STORAGE_KEYS.LIKED_MOVIES);
+      const savedWatchLater = localStorage.getItem(STORAGE_KEYS.WATCH_LATER);
 
-    if (savedLiked) setLikedMovies(new Set(JSON.parse(savedLiked)));
-    if (savedWatchLater) setWatchLaterMovies(new Set(JSON.parse(savedWatchLater)));
-    if (savedDarkMode !== null) setDarkMode(JSON.parse(savedDarkMode));
+      if (savedLiked) setLikedMovies(new Set(JSON.parse(savedLiked)));
+      if (savedWatchLater) setWatchLaterMovies(new Set(JSON.parse(savedWatchLater)));
+    }
 
     // Load filters from URL
     const urlFilters = decodeFiltersFromURL(searchParams);
     setFilters(urlFilters);
-  }, [searchParams]);
+  }, [searchParams, user]);
 
   // Load movies when filters change
   useEffect(() => {
