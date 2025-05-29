@@ -4,7 +4,7 @@ import MovieFilters from './components/MovieFilters';
 import MovieCard from './components/MovieCard';
 import LoginPage from './components/LoginPage';
 import { getMovies, getSimilarMovies, encodeFiltersToURL, decodeFiltersFromURL } from './utils/movieApi';
-import { MagnifyingGlassIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { AuthProvider, useAuth, useRequireAuth } from './context/AuthContext';
 import './App.css';
 
