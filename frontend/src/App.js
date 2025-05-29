@@ -22,6 +22,7 @@ function MovieApp() {
   const [likedMovies, setLikedMovies] = useState(new Set());
   const [watchLaterMovies, setWatchLaterMovies] = useState(new Set());
   const [showRecommendations, setShowRecommendations] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   
   const { user, updateUserData } = useAuth();
   const { requireAuth, showAuthPrompt, setShowAuthPrompt } = useRequireAuth();
