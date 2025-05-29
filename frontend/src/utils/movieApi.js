@@ -4,7 +4,7 @@ const OMDB_API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 const YOUTUBE_BASE_URL = 'https://www.googleapis.com/youtube/v3';
-const OMDB_BASE_URL = 'http://www.omdbapi.com';
+const OMDB_BASE_URL = 'https://www.omdbapi.com';
 
 // Mood tags mapping for scoring
 const MOOD_TAGS = {
