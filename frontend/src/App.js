@@ -275,11 +275,13 @@ function MovieApp() {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MovieApp />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MovieApp />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
