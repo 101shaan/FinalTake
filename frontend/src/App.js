@@ -45,9 +45,11 @@ function MovieApp() {
       // Fallback to localStorage for non-logged-in users
       const savedLiked = localStorage.getItem(STORAGE_KEYS.LIKED_MOVIES);
       const savedWatchLater = localStorage.getItem(STORAGE_KEYS.WATCH_LATER);
+      const savedDarkMode = localStorage.getItem(STORAGE_KEYS.DARK_MODE);
 
       if (savedLiked) setLikedMovies(new Set(JSON.parse(savedLiked)));
       if (savedWatchLater) setWatchLaterMovies(new Set(JSON.parse(savedWatchLater)));
+      if (savedDarkMode !== null) setDarkMode(JSON.parse(savedDarkMode));
     }
 
     // Load filters from URL
