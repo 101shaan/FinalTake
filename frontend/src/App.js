@@ -141,12 +141,6 @@ function MovieApp() {
     });
   };
 
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    localStorage.setItem(STORAGE_KEYS.DARK_MODE, JSON.stringify(newDarkMode));
-  };
-
   const SkeletonCard = () => (
     <div className="bg-gray-900 rounded-2xl overflow-hidden animate-pulse">
       <div className="h-80 bg-gray-800"></div>
