@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.2.0",
     "axios": "^1.8.4",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-multi-select-component": "^4.3.4",
+    "react-range": "^1.10.0",
     "react-router-dom": "^7.5.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-youtube": "^10.1.0",
+    "uuid": "^11.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
