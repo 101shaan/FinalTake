@@ -167,10 +167,17 @@ function MovieApp() {
             </div>
             
             <div className="flex items-center space-x-4">
-              {user && (
+              {user ? (
                 <span className="text-yellow-400 text-sm">
                   Welcome, {user.username}!
                 </span>
+              ) : (
+                <button
+                  onClick={() => setShowAuthPrompt(true)}
+                  className="px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300"
+                >
+                  Login
+                </button>
               )}
             </div>
           </div>
