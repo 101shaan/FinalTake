@@ -157,7 +157,10 @@ function MovieApp() {
   );
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-black' : 'bg-gray-100'}`}>
+    <div className="min-h-screen transition-colors duration-500 bg-black">
+      {/* Login Modal */}
+      <LoginPage isOpen={showAuthPrompt} onClose={() => setShowAuthPrompt(false)} />
+
       {/* Header */}
       <header className="sticky top-0 z-40 bg-gradient-to-r from-black via-gray-900 to-black border-b border-yellow-500/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,21 +169,14 @@ function MovieApp() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                 🎬 FinalTake
               </h1>
-              <div className="hidden md:block text-gray-400 text-sm">
-                Discover your perfect movie moment
-              </div>
             </div>
             
             <div className="flex items-center space-x-4">
-              <div className="text-yellow-400 text-sm">
-                {movies.length} movies found
-              </div>
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-yellow-400 hover:text-yellow-300 transition-all duration-300"
-              >
-                {darkMode ? <SunIcon className="w-5 h-5" /> : <MoonIcon className="w-5 h-5" />}
-              </button>
+              {user && (
+                <span className="text-yellow-400 text-sm">
+                  Welcome, {user.username}!
+                </span>
+              )}
             </div>
           </div>
         </div>
