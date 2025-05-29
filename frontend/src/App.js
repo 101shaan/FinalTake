@@ -10,8 +10,7 @@ import './App.css';
 
 const STORAGE_KEYS = {
   LIKED_MOVIES: 'finaltake_liked_movies',
-  WATCH_LATER: 'finaltake_watch_later',
-  DARK_MODE: 'finaltake_dark_mode'
+  WATCH_LATER: 'finaltake_watch_later'
 };
 
 function MovieApp() {
