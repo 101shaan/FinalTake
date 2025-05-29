@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useSearchParams } from 'react-router-dom';
 import MovieFilters from './components/MovieFilters';
 import MovieCard from './components/MovieCard';
+import LoginPage from './components/LoginPage';
 import { getMovies, getSimilarMovies, encodeFiltersToURL, decodeFiltersFromURL } from './utils/movieApi';
-import { MoonIcon, SunIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { AuthProvider, useAuth, useRequireAuth } from './context/AuthContext';
 import './App.css';
 
 const STORAGE_KEYS = {
