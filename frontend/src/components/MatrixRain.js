@@ -18,7 +18,7 @@ const MatrixRain = ({ maskText = "FinalTake" }) => {
     };
 
     // Movie-themed characters for the rain
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*(){}[]|\\:;\"'<>,.?/~`".split("");
+    const characters = "FINALTAKE".split("");
     
     // Initialize rain drops
     const initializeDrops = () => {
